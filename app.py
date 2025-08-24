@@ -1,14 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return "<h1>¡Hola! Este es mi primer sitio web con Flask.</h1>"
+def inicio():
+    return render_template('index.html')
 
-@app.route('/about')
-def about():
-    return "<h2>Sobre mí</h2><p>Esta es una página de información.</p>"
+@app.route('/informacion')
+def informacion():
+    return render_template('about.html')
 
 if __name__ == '__main__':
+    app.run(debug=True)
+
     app.run(debug=True)
